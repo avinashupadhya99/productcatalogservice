@@ -7,5 +7,16 @@ steps:
     - |
       go test
 
+- id: 'Build and push image'
+  name: 'gcr.io/k8s-skaffold/skaffold:v1.39.2'
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - >
+    skaffold build \
+    --interactive=false \
+    --default-repo us-docker.pkg.dev/ivory-setup-362907/web-app \
+    --file-output artifacts.json
+
 
 timeout: '3600s'
