@@ -12,8 +12,8 @@ steps:
   entrypoint: 'bash'
   args:
   - '-c'
-  - >
-    skaffold run \
+  - |
+    skaffold build \
     --interactive=false \
     --default-repo us-central1-docker.pkg.dev/$PROJECT_ID/online-boutique/productcatalogservice:$SHORT_SHA \
     --file-output artifacts.json
