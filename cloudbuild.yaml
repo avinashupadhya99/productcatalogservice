@@ -12,11 +12,27 @@ steps:
   entrypoint: 'bash'
   args:
   - '-c'
-  - |
-    skaffold build \
+  - >
+    skaffold run \
     --interactive=false \
-    --default-repo us-docker.pkg.dev/ivory-setup-362907/productcatalogservice \
+    --default-repo us-central1-docker.pkg.dev/$PROJECT_ID/online-boutique/productcatalogservice:$SHORT_SHA \
     --file-output artifacts.json
+
+# - name: 'gcr.io/k8s-skaffold/pack'
+#   entrypoint: 'pack'
+#   args: ['build', '--builder=gcr.io/buildpacks/builder', '--publish', 'us-central1-docker.pkg.dev/$PROJECT_ID/online-boutique/productcatalogservice:$SHORT_SHA']
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - > 
+    gcloud deploy releases create release-$BUILD_ID
+    --delivery-pipeline=productcatalogservice
+    --region=us-central1
+    --build-artifacts artifacts.json
+    --source=./
+    --images=productcatalogservice=us-central1-docker.pkg.dev/$PROJECT_ID/online-boutique/productcatalogservice:$SHORT_SHA 
+
 
 
 timeout: '3600s'
