@@ -9,11 +9,14 @@ steps:
 
 - id: 'Build and push image'
   name: 'gcr.io/k8s-skaffold/skaffold:v1.39.2'
+  entrypoint: 'bash'
   args:
-  - build 
-  - --interactive=false
-  - --default-repo us-docker.pkg.dev/ivory-setup-362907/productcatalogservice 
-  - --file-output artifacts.json
+  - '-c'
+  - >
+    skaffold run \
+    --interactive=false \
+    --default-repo us-docker.pkg.dev/ivory-setup-362907/productcatalogservice \
+    --file-output artifacts.json
 
 
 timeout: '3600s'
