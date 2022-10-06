@@ -32,6 +32,4 @@ steps:
     --source=./
     --images=productcatalogservice=us-central1-docker.pkg.dev/$PROJECT_ID/online-boutique/productcatalogservice:$SHORT_SHA 
 
-
-
 timeout: '3600s'
