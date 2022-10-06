@@ -17,7 +17,9 @@ kind: Config
 build:
   artifacts:
     - image: productcatalogservice
-      context: productcatalogservice
+      context: .
+  googleCloudBuild:
+    projectId: ivory-setup-362907
 deploy:
   kubectl:
     manifests:
