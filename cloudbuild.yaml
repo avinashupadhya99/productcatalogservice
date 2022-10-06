@@ -15,7 +15,7 @@ steps:
   - |
     skaffold build \
     --interactive=false \
-    --default-repo us-central1-docker.pkg.dev/$PROJECT_ID/online-boutique/productcatalogservice:$SHORT_SHA \
+    --default-repo us-central1-docker.pkg.dev/$PROJECT_ID/online-boutique \
     --file-output artifacts.json
 
 # - name: 'gcr.io/k8s-skaffold/pack'
