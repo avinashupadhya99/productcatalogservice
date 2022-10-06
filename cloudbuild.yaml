@@ -12,8 +12,8 @@ steps:
   entrypoint: 'bash'
   args:
   - '-c'
-  - >
-    skaffold run \
+  - |
+    skaffold build \
     --interactive=false \
     --default-repo us-docker.pkg.dev/ivory-setup-362907/productcatalogservice \
     --file-output artifacts.json
