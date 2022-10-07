@@ -16,7 +16,7 @@ metadata:
   name: staging
 description: Staging Environment
 gke:
-  cluster: projects/ivory-setup-362907/locations/us-central1/clusters/staging
+  cluster: projects/ivory-setup-362907/locations/southamerica-east1/clusters/staging
 
 ---
 apiVersion: deploy.cloud.google.com/v1beta1
@@ -25,4 +25,4 @@ metadata:
   name: production
 description: Production Environment
 gke:
-  cluster: projects/ivory-setup-362907/locations/us-central1/clusters/production
+  cluster: projects/ivory-setup-362907/locations/us-west1/clusters/prod
