@@ -28,7 +28,7 @@ steps:
   - > 
     gcloud deploy releases create release-$BUILD_ID
     --delivery-pipeline=productcatalogservice
-    --region=us-central1
+    --region=southamerica-east1
     --source=./
     --images=productcatalogservice=us-central1-docker.pkg.dev/$PROJECT_ID/online-boutique/productcatalogservice:$SHORT_SHA 
 
